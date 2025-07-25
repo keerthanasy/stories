@@ -1,0 +1,21 @@
+{
+  "name": "3d-ecommerce-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "mongoose": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "jsonwebtoken": "latest",
+    "bcryptjs": "latest",
+    "openai": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+} 

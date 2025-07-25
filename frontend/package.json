@@ -1,0 +1,25 @@
+{
+  "name": "3d-ecommerce-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "framer-motion": "latest",
+    "tailwindcss": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  }
+}

@@ -7,15 +7,15 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
-    "express": "latest",
-    "mongoose": "latest",
+    "bcryptjs": "latest",
     "cors": "latest",
     "dotenv": "latest",
+    "express": "latest",
     "jsonwebtoken": "latest",
-    "bcryptjs": "latest",
-    "openai": "latest"
+    "mongoose": "latest",
+    "openai": "^5.10.2"
   },
   "devDependencies": {
     "nodemon": "latest"
   }
-} 
+}

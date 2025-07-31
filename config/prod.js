@@ -1,9 +1,8 @@
 module.exports = {
-  mongoURI: process.env.MONGO_URI_PROD,
-  jwtSecret: process.env.JWT_SECRET_PROD,
-  port: process.env.PORT_PROD,
-  nodeEnv: 'production',
-  // AI Configuration
+  mongoURI: process.env.MONGODB_URI,
   openaiApiKey: process.env.OPENAI_API_KEY,
-
-};
+  jwtSecret: process.env.JWT_SECRET,
+  port: process.env.PORT || 5000,
+  nodeEnv: 'production',
+  corsOrigin: process.env.CORS_ORIGIN || 'https://your-domain.com'
+}; 

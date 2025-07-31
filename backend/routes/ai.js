@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const OpenAI = require('openai');
 
-// Initialize OpenAI
+// Import centralized configuration
+const config = require('../../config/keys');
+
+// Initialize OpenAI with centralized config
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: config.openaiApiKey,
 });
 
 // Middleware to verify JWT token
@@ -17,7 +20,7 @@ const authenticateToken = (req, res, next) => {
   }
 
   const jwt = require('jsonwebtoken');
-  jwt.verify(token, process.env.JWT_SECRET || 'secret@1912', (err, user) => {
+  jwt.verify(token, config.jwtSecret, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid or expired token' });
     }
@@ -29,7 +32,7 @@ const authenticateToken = (req, res, next) => {
 // Generate blog post ideas
 router.post('/generate-ideas', authenticateToken, async (req, res) => {
   try {
-    console.log('AI API Key:', process.env.OPENAI_API_KEY ? 'Present' : 'Missing');
+    console.log('AI API Key:', config.openaiApiKey ? 'Present' : 'Missing');
     console.log('Request body:', req.body);
     
     const { topic, audience, tone } = req.body;

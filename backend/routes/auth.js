@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const router = express.Router();
 
+// Import centralized configuration
+const config = require('../../config/keys');
+
 // In-memory user storage as fallback
 let inMemoryUsers = [];
 
@@ -16,7 +19,7 @@ const authenticateToken = (req, res, next) => {
     return res.status(401).json({ message: 'Access token required' });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET || 'secret@1912', (err, user) => {
+  jwt.verify(token, config.jwtSecret, (err, user) => {
     if (err) {
       return res.status(403).json({ message: 'Invalid or expired token' });
     }
@@ -81,7 +84,7 @@ router.post('/login', async (req, res) => {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'secret@1912', { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '1h' });
 
       res.json({ message: 'Login successful!', token });
     } catch (mongoError) {
@@ -92,7 +95,7 @@ router.post('/login', async (req, res) => {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
 
-      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'secret@1912', { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user._id }, config.jwtSecret, { expiresIn: '1h' });
 
       res.json({ message: 'Login successful! (Demo mode)', token });
     }

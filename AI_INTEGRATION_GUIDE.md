@@ -20,7 +20,7 @@ This guide will help you set up and use the AI-powered features in your blog pla
 
 2. Edit `backend/.env` and add your OpenAI API key:
    ```env
-   OPENAI_API_KEY=sk-your-actual-api-key-here
+   OPENAI_API_KEY=your-actual-api-key-here
    JWT_SECRET=your-secure-jwt-secret-here
    MONGODB_URI=mongodb://localhost:27017/aiblog
    PORT=5000

@@ -32,7 +32,7 @@ When deploying to Render, you need to set these environment variables in your Re
 
 5. **OPENAI_API_KEY**
    - Value: Your production OpenAI API key
-   - Example: `sk-proj-your-production-openai-key`
+   - Example: `your-production-openai-key-here`
 
 ## How to Set Environment Variables in Render:
 

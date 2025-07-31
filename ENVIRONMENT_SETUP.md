@@ -13,7 +13,7 @@
 ```env
 # .env.example
 MONGODB_URI=mongodb://localhost:27017/your_database
-OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_API_KEY=your-actual-api-key-here
 JWT_SECRET=your_jwt_secret_here
 PORT=5000
 ```
